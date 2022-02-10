@@ -22,8 +22,7 @@ class J3 extends J2 implements ActionListener{
 
 	J3(){
 
-		setLocationRelativeTo(null);
-		setLayout(null);
+		setLayout(new FlowLayout());
 		JPanel p2 = new JPanel();
 		JPanel p3 = new JPanel();
 		JPanel p4 = new JPanel();
@@ -46,13 +45,15 @@ class J3 extends J2 implements ActionListener{
 		add(p5);
 		add(this.scpDemo);
 
-		this.scpDemo.setBounds(500,30,450,300);//x y 宽 高
-		p2.setBounds(300, 50, 200, 200);
+		this.scpDemo.setBounds(400,30,450,300);//x y 宽 高
+		p2.setBounds(250, 50, 80, 200);
 		p3.setBounds(700, 340, 200, 200);
 		p4.setBounds(440,340 , 200,200);
-		p5.setBounds(180, 50, 200, 200);
-		this.setVisible(true);
+		p5.setBounds(50, 50, 200, 200);
 
+		setLocationRelativeTo(null);//居中
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setVisible(true);
 
 	}
 

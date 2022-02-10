@@ -10,23 +10,35 @@ public class J4  extends JFrame  implements ActionListener {
 	JTextField t1=new JTextField(12);//account
 	JTextField t2=new JTextField(12);//cnumber
 	J4(){
-		setTitle("修改信息");
-		setSize(1000,500);
+
+		setTitle("修改卡信息");
+		setSize(900,500);
+
+		//getContentPane().setBackground(Color.red);
+		//getContentPane().setVisible(true);//如果改为true那么就变成了红色。
+		setLocationRelativeTo(null);//居中
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
+
 		this.setLayout(null);
-		JLabel l1 = new JLabel("account");
-		JLabel l2 = new JLabel("cnumber");
+		JLabel l1 = new JLabel("学号：");
+		JLabel l2 = new JLabel("新卡序列号：");
 		JPanel p1 = new JPanel();
-
-
+		JPanel p2 = new JPanel();
 		b1 = new JButton("提交");
 
-		p1.add(l1); p1.add(t1);p1.add(l2); p1.add(t2);
-		this.getContentPane().add(b1);
-		p1.setBounds(200, 50, 200, 200);
+		p1.add(l1);
+		p1.add(t1);
 
-		b1.setBounds(300, 150, 80, 80);
+		p2.add(l2);
+		p2.add(t2);
 		add(p1);
+		add(p2);
+
+		this.getContentPane().add(b1);
+		p1.setBounds(200, 180, 400, 30);
+		p2.setBounds(200, 220, 400, 30);
+		b1.setBounds(400, 270, 80, 30);
 		b1.addActionListener(this);
 
 	}
