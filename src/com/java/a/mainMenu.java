@@ -1,27 +1,35 @@
 package com.java.a;
+
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import javax.swing.ImageIcon;
+
+
 public class mainMenu extends JFrame implements ActionListener{
-	JButton s1=new JButton("æŸ¥è¯¢å…¨éƒ¨æœªå–å¡è®°å½•");
-	JButton	s2=new JButton("ä¿®æ”¹å¡ä¿¡æ¯");
+	JButton s1=new JButton("¿¨»ú¼ÇÂ¼¹ÜÀí");
+	JButton	s2=new JButton("ÓÃ»§ĞÅÏ¢Î¬»¤");
+	JButton	s3=new JButton("ÏûÏ¢ÍÆËÍ¹ÜÀí");
 	mainMenu(){
-		super("å¡å¿…è¾¾-ç®¡ç†ç«¯");
+		super("ÖÇÄÜÒ»¿¨Í¨Ê§¿¨ÕĞÁìÏµÍ³");
 		this.setLayout(null);
-		setSize(900,500);
+		setSize(700,290);//500 300
 		s1.addActionListener(this);
 		s2.addActionListener(this);
-		s1.setBounds(150,120,200,200);
-		s2.setBounds(530,120,200,200);
+		s2.addActionListener(this);
+		s1.setBounds(110,70,130,100);
+		s2.setBounds(280,70,130,100);
+		s3.setBounds(450,70,130,100);
 		add(s1);
 		add(s2);
-		setLocationRelativeTo(null);//å±…ä¸­
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		add(s3);
 		this.setVisible(true);
 	}
 
-	public void  actionPerformed(ActionEvent e) {
+
+	public void  actionPerformed(ActionEvent e) {//ÏìÓ¦Æ÷
 		Object ob=e.getSource();
 		if(ob==s1) {
 			new J3().setVisible(true);

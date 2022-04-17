@@ -5,8 +5,8 @@ import javax.swing.*;
 class J1  extends JFrame {
 
 	J1(){
-		setTitle("æŸ¥è¯¢å…¨éƒ¨æœªå–å¡è®°å½•");
-		setSize(900,500);
+		setTitle("¿¨»ú¼ÇÂ¼¹ÜÀí");
+		setSize(1000,500);
 		setVisible(true);
 	}
 }

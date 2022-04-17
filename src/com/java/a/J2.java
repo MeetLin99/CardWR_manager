@@ -6,16 +6,21 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import java.awt.GridLayout;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 public class J2 extends J1 {
 
-	JTextField t1=new JTextField(12);//Âç°Âè∑
+	JTextField t1=new JTextField(12);//ø®∫≈
 	J2(){
 		setLayout(new GridLayout(2,2));
-		JLabel l1 = new JLabel("Â≠¶ÁîüÂç°Âè∑");
+		JLabel l1 = new JLabel("—ß…˙ø®∫≈");
 		JPanel p1 = new JPanel();
 		p1.add(l1);
 		p1.add(t1);
 		add(p1);
 	}
 }
-

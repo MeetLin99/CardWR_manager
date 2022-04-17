@@ -10,35 +10,21 @@ public class J4  extends JFrame  implements ActionListener {
 	JTextField t1=new JTextField(12);//account
 	JTextField t2=new JTextField(12);//cnumber
 	J4(){
-
-		setTitle("ä¿®æ”¹å¡ä¿¡æ¯");
-		setSize(900,500);
-
-		//getContentPane().setBackground(Color.red);
-		//getContentPane().setVisible(true);//å¦‚æœæ”¹ä¸ºtrueé‚£ä¹ˆå°±å˜æˆäº†çº¢è‰²ã€‚
-		setLocationRelativeTo(null);//å±…ä¸­
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setTitle("ÓÃ»§ĞÅÏ¢Î¬»¤");
+		setSize(600,300);
 		setVisible(true);
-
-		this.setLayout(null);
-		JLabel l1 = new JLabel("å­¦å·ï¼š");
-		JLabel l2 = new JLabel("æ–°å¡åºåˆ—å·ï¼š");
+		JLabel l1 = new JLabel("account");
+		JLabel l2 = new JLabel("cnumber");
 		JPanel p1 = new JPanel();
 		JPanel p2 = new JPanel();
-		b1 = new JButton("æäº¤");
-
-		p1.add(l1);
-		p1.add(t1);
-
-		p2.add(l2);
-		p2.add(t2);
-		add(p1);
-		add(p2);
-
+		b1 = new JButton("Ìá½»");
+		p1.add(l1); p1.add(t1);
+		p2.add(l2); p2.add(t2);
 		this.getContentPane().add(b1);
-		p1.setBounds(200, 180, 400, 30);
-		p2.setBounds(200, 220, 400, 30);
-		b1.setBounds(400, 270, 80, 30);
+		p1.setBounds(190, 50, 200, 200);
+		p2.setBounds(20, 100, 200, 200);
+		b1.setBounds(230, 120, 80, 50);
+		add(p1); add(p2);
 		b1.addActionListener(this);
 
 	}
@@ -47,13 +33,13 @@ public class J4  extends JFrame  implements ActionListener {
 		if(obj == b1){
 			String phone1 = this.t1.getText();
 			String id1 = this.t2.getText();
-			JDBC x = new JDBC();//åˆ›å»ºè¿æ¥å¯¹è±¡
+			JDBC x = new JDBC();//´´½¨Á¬½Ó¶ÔÏó
 			try {
 				x.OpenConn();
 				String sql = "select * from lost_users where phone="+phone1;
-				x.rs = x.executeQuery(sql);//è·å¾—ç»“æœé›†
-				if(x.rs.next()) new J1().setTitle("æäº¤æˆåŠŸï¼ï¼ï¼");
-				else new J1().setTitle("æäº¤å¤±è´¥ï¼ï¼ï¼");
+				x.rs = x.executeQuery(sql);//»ñµÃ½á¹û¼¯
+				if(x.rs.next()) new J1().setTitle("Ìá½»³É¹¦£¡£¡£¡");
+				else new J1().setTitle("Ìá½»Ê§°Ü£¡£¡£¡");
 
 				sql="update lost_users set id='"+id1+"'"+"where phone="+phone1;
 				System.out.println(sql);

@@ -1,4 +1,5 @@
 package com.java.a;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,31 +13,31 @@ public class JDBC {
 	static ResultSet rs;
 	static String sql;
 
-	//æ•°æ®åº“è¿æ¥æ“ä½œæ–¹æ³•
+	//Êı¾İ¿âÁ¬½Ó²Ù×÷·½·¨
 	public static void OpenConn() throws Exception{
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			String url = "jdbc:mysql://localhost:3306/cardwr?serverTimezone=UTC&characterEncoding=utf-8";
 			String username = "root";
-			String password = "0000";//å¯†ç æ˜¯ä½ å®‰è£…mysqlæ—¶çš„å¯†ç 
+			String password = "0000";//ÃÜÂëÊÇÄã°²×°mysqlÊ±µÄÃÜÂë
 			conn = DriverManager.getConnection(url,username,password);
-			if(conn != null) System.out.println("æ•°æ®åº“è¿æ¥æˆåŠŸ");
+			if(conn != null) System.out.println("Êı¾İ¿âÁ¬½Ó³É¹¦");
 		}catch(Exception e) {
-			System.err.println("æ•°æ®åº“è¿æ¥ï¼š"+e.getMessage()+"\n");
+			System.err.println("Êı¾İ¿âÁ¬½Ó£º"+e.getMessage()+"\n");
 		}
 	}
 
 
 
 
-	//æ‰§è¡Œæ•°æ®æŸ¥è¯¢çš„æ–¹æ³•
+	//Ö´ĞĞÊı¾İ²éÑ¯µÄ·½·¨
 	public ResultSet executeQuery(String sql) {
 		stmt = null; rs = null;
 		try {
 			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 			rs = stmt.executeQuery(sql);
 		}catch(SQLException e) {
-			System.err.println("æŸ¥è¯¢æ•°æ®ï¼š"+e.getMessage());
+			System.err.println("²éÑ¯Êı¾İ£º"+e.getMessage());
 		}
 		return rs;
 	}
@@ -44,7 +45,7 @@ public class JDBC {
 
 
 
-	//æ‰§è¡Œåˆ›å»ºæ•°æ®è¡¨ã€æ’å…¥æ•°æ®ç­‰æ“ä½œ
+	//Ö´ĞĞ´´½¨Êı¾İ±í¡¢²åÈëÊı¾İµÈ²Ù×÷
 	public void execute(String sql) {
 		stmt = null; rs = null;
 		try {
@@ -56,34 +57,34 @@ public class JDBC {
 	}
 
 
-	//æ›´æ–°æ•°æ®åº“æ“ä½œæ–¹æ³•
+	//¸üĞÂÊı¾İ¿â²Ù×÷·½·¨
 	public void executeUpdate(String sql) {
 		stmt = null; rs = null;
 		try {
 			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
 			stmt.execute(sql);
 			conn.setAutoCommit(false);
-			conn.commit();//æäº¤
+			conn.commit();//Ìá½»
 		}catch(SQLException e) {
-			System.err.println("æ›´æ–°æ•°æ®"+e.getMessage());
+			System.err.println("¸üĞÂÊı¾İ"+e.getMessage());
 		}
 	}
 
 
-	//å…³é—­statementå¯¹è±¡çš„æ–¹æ³•
+	//¹Ø±Õstatement¶ÔÏóµÄ·½·¨
 	public void closeStmt() {
 		try {
 			stmt.close();
 		}catch(SQLException e){
-			System.err.println("é‡Šæ”¾å¯¹è±¡"+e.getMessage());
+			System.err.println("ÊÍ·Å¶ÔÏó"+e.getMessage());
 		}
 	}
-	//å…³é—­æ•°æ®åº“çš„æ–¹æ³•
+	//¹Ø±ÕÊı¾İ¿âµÄ·½·¨
 	public void closeConn() {
 		try {
 			conn.close();
 		}catch(SQLException e) {
-			System.err.println("é‡Šæ”¾å¯¹è±¡"+e.getMessage());
+			System.err.println("ÊÍ·Å¶ÔÏó"+e.getMessage());
 		}
 	}
 }

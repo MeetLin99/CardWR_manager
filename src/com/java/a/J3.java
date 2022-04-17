@@ -12,48 +12,46 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.JTableHeader;
 
-
 class J3 extends J2 implements ActionListener{
 	JButton b1,b2,b3;
 	JTextField t1=new JTextField(12);
-	private JScrollPane scpDemo;//æ•°æ®æ˜¾ç¤ºæ»šåŠ¨é¢æ¿
-	private JTableHeader jth;//è¡¨å¤´
-	private JTable tabDemo;//è¡¨
+	private JScrollPane scpDemo;//Êı¾İÏÔÊ¾¹ö¶¯Ãæ°å
+	private JTableHeader jth;//±íÍ·
+	private JTable tabDemo;//±í
 
 	J3(){
-
-		setLayout(new FlowLayout());
+		setLocationRelativeTo(null);
+		setLayout(null);
 		JPanel p2 = new JPanel();
 		JPanel p3 = new JPanel();
 		JPanel p4 = new JPanel();
 		JPanel p5 = new JPanel();
-		b1 = new JButton("å–å¡");
-		b2 = new JButton("å–å‡ºæ‰€æœ‰å¡");
-		b3 = new JButton("æ˜¾ç¤ºæ•°æ®");
+		setSize(750,500);
+		b1 = new JButton("È¡¿¨");
+		b2 = new JButton("È¡³öËùÓĞ¿¨");
+		b3 = new JButton("ÏÔÊ¾Êı¾İ");
 		b1.addActionListener(this);
 		b2.addActionListener(this);
 		b3.addActionListener(this);
-		this.scpDemo = new JScrollPane();//æ•°æ®æ˜¾ç¤ºæ»šåŠ¨é¢æ¿
+		this.scpDemo = new JScrollPane();//Êı¾İÏÔÊ¾¹ö¶¯Ãæ°å
 
-		p2.add(b1);
+		p2.add(b1);//È¡¿¨
 		p3.add(b2);
 		p4.add(b3);
-		p5.add(t1);
+		p5.add(t1);//ÎÄ±¾¿ò
 		add(p2);
 		add(p3);
 		add(p4);
 		add(p5);
 		add(this.scpDemo);
 
-		this.scpDemo.setBounds(400,30,450,300);//x y å®½ é«˜
-		p2.setBounds(250, 50, 80, 200);
-		p3.setBounds(700, 340, 200, 200);
-		p4.setBounds(440,340 , 200,200);
-		p5.setBounds(50, 50, 200, 200);
-
-		setLocationRelativeTo(null);//å±…ä¸­
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.scpDemo.setBounds(100,30,550,300);//x y ¿í ¸ß
+		p2.setBounds(200, 340, 200, 200);
+		p3.setBounds(510, 390, 200, 200);
+		p4.setBounds(515, 340, 200,200);
+		p5.setBounds(70, 340, 200, 200);
 		this.setVisible(true);
+
 
 	}
 
@@ -62,13 +60,13 @@ class J3 extends J2 implements ActionListener{
 		Object obj = e.getSource();
 		if(obj == b1){
 			String cid = this.t1.getText();
-			JDBC x = new JDBC();//åˆ›å»ºè¿æ¥å¯¹è±¡
+			JDBC x = new JDBC();//´´½¨Á¬½Ó¶ÔÏó
 			try {
 				x.OpenConn();
 				String sql = "select * from lost_record where id="+cid;
-				x.rs = x.executeQuery(sql);//è·å¾—ç»“æœé›†
-				if(x.rs.next()) new J1().setTitle("å–å‡ºæˆåŠŸï¼ï¼ï¼");
-				else new J1().setTitle("å–å‡ºå¤±è´¥ï¼ï¼ï¼");
+				x.rs = x.executeQuery(sql);//»ñµÃ½á¹û¼¯
+				if(x.rs.next()) new J1().setTitle("È¡³ö³É¹¦£¡£¡£¡");
+				else new J1().setTitle("È¡³öÊ§°Ü£¡£¡£¡");
 
 				sql = "delete from lost_record where id="+cid;
 				System.out.println(sql);
@@ -83,14 +81,14 @@ class J3 extends J2 implements ActionListener{
 
 		if(obj == b2){
 			String cid = this.t1.getText();
-			JDBC x = new JDBC();//åˆ›å»ºè¿æ¥å¯¹è±¡
+			JDBC x = new JDBC();//´´½¨Á¬½Ó¶ÔÏó
 			try {
 				x.OpenConn();
 				String sql = "select * from lost_record where id="+cid;
 				x.rs = x.executeQuery(sql);
 				sql = "delete from lost_record ";
 				System.out.println(sql);
-				new J1().setTitle("å–å‡ºæˆåŠŸï¼ï¼ï¼");
+				new J1().setTitle("È¡³ö³É¹¦£¡£¡£¡");
 				x.execute(sql);
 
 			}catch(Exception e1) {
@@ -102,7 +100,7 @@ class J3 extends J2 implements ActionListener{
 
 
 		if(obj == b3){
-			JDBC x = new JDBC();//åˆ›å»ºè¿æ¥å¯¹è±¡
+			JDBC x = new JDBC();//´´½¨Á¬½Ó¶ÔÏó
 			try {
 				x.OpenConn();
 				String sql = "select * from lost_record";
@@ -134,11 +132,11 @@ class J3 extends J2 implements ActionListener{
 
 				}
 
-				// åˆ›å»ºJTable
+				// ´´½¨JTable
 				this.tabDemo = new JTable(info,title);
-				// æ˜¾ç¤ºè¡¨å¤´
+				// ÏÔÊ¾±íÍ·
 				this.jth = this.tabDemo.getTableHeader();
-				// å°†JTableåŠ å…¥åˆ°å¸¦æ»šåŠ¨æ¡çš„é¢æ¿ä¸­
+				// ½«JTable¼ÓÈëµ½´ø¹ö¶¯ÌõµÄÃæ°åÖĞ
 				this.scpDemo.getViewport().add(tabDemo);
 
 			}catch(Exception e1) {
