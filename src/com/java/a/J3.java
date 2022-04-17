@@ -5,11 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.awt.*;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.table.JTableHeader;
 
 class J3 extends J2 implements ActionListener{
@@ -51,6 +47,7 @@ class J3 extends J2 implements ActionListener{
 		p4.setBounds(515, 340, 200,200);
 		p5.setBounds(70, 340, 200, 200);
 		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
 	}
@@ -116,7 +113,7 @@ class J3 extends J2 implements ActionListener{
 				}
 
 				Object[][] info = new Object[count][6];
-				String []title= {"id","cardid"," title","content","type_code","status"};
+				String []title= {"序号","卡序列号"," 时间","位置","类型","状态"};
 				count = 0;
 
 				while(x.rs.previous())

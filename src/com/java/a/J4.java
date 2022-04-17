@@ -10,11 +10,16 @@ public class J4  extends JFrame  implements ActionListener {
 	JTextField t1=new JTextField(12);//account
 	JTextField t2=new JTextField(12);//cnumber
 	J4(){
+
+		setLocationRelativeTo(null);
+
 		setTitle("用户信息维护");
 		setSize(600,300);
 		setVisible(true);
-		JLabel l1 = new JLabel("account");
-		JLabel l2 = new JLabel("cnumber");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		JLabel l1 = new JLabel("学号");
+		JLabel l2 = new JLabel("卡序列号");
 		JPanel p1 = new JPanel();
 		JPanel p2 = new JPanel();
 		b1 = new JButton("提交");

@@ -26,18 +26,23 @@ public class mainMenu extends JFrame implements ActionListener{
 		add(s2);
 		add(s3);
 		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 
 	public void  actionPerformed(ActionEvent e) {//ÏìÓ¦Æ÷
 		Object ob=e.getSource();
-		if(ob==s1) {
+		if(ob == s1) {
 			new J3().setVisible(true);
-			this.dispose();
+			//this.dispose();
 		}
-		if(ob==s2) {
+		else if(ob == s2) {
 			new J4().setVisible(true);
-			this.dispose();
+			//this.dispose();
 		}
+		//else if(ob == s3) {
+			//new J4().setVisible(true);
+			//this.dispose();
+		//}
 	}
 }
